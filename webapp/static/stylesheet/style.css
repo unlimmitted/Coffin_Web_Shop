@@ -1,0 +1,68 @@
+body {
+	    position: relative;
+	    font-family: 'Noto Sans', sans-serif;
+	    font-size: 16px;
+	    line-height: 1.4;
+	    color: #000;
+	    min-width: 320px;
+	    overflow-x: hidden;
+	    height: auto;
+    }
+
+    .navbar {
+        width: 100%;
+        height: 70px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, .2);
+    }
+
+    .navbar .container {
+        height: inherit;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+   .navbar-about{
+        display: flex;
+        flex-flow: row nowrap;
+    }
+    /* Кнопки */
+    .reglog {
+        margin-left: 30px;
+        padding: 10px 30px;
+        background-color:grey;
+        border-radius: 100px;
+        color: white;
+        text-decoration: none;
+        transition: all .1s ease-out;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    }
+    .reglog:hover {
+        transform: scale(1.04) ;
+    }
+    .about {
+        margin-left: 30px;
+        padding: 10px 30px;
+        background-color:grey;
+        border-radius: 100px;
+        color: white;
+        text-decoration: none;
+        transition: all .1s ease-out;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    }
+    .about:hover {
+        transform: scale(1.04) ;
+    }
+    /*--------------------------------- */
+    .navbar-logo {
+        font-weight: 700;
+        font-style: 100px;
+        text-decoration: none;
+        color: black;
+
+    }
+    .navbar-logo:hover{
+        color:grey;
+        transition: all .09s ease-in-out;
+
+    }
