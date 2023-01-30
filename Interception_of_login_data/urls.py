@@ -20,10 +20,9 @@ from webapp import views
 from Interception_of_login_data import settings
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('login/', views.log_page, name='login'),
-    path('', views.main_page, name='grob'),
+    path('login/', views.login, name='login'),
+    path('register/', views.RegisterUser.as_view(), name='register'),
+    path('', views.coffinHome.as_view(), name='grob'),
     path('about/', views.about, name='about'),
-    path('coffin/<str:slug>', views.show_details, name='details')
-]
-if settings.DEBUG:
-    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+    path('coffin/<str:slug>', views.show_details, name='details'),
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

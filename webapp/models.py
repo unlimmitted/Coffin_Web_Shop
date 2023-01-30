@@ -1,12 +1,13 @@
 from django.db import models
 from django.urls import reverse
+from autoslug import AutoSlugField
 
 
 class coffinList(models.Model):
     title = models.CharField(max_length=255, verbose_name="Название гроба")
     content = models.TextField(blank=True, verbose_name="Описание")
     content_details = models.TextField(blank=True, verbose_name="Подробное описание")
-    slug = models.CharField(max_length=255, verbose_name="URL Гроба")
+    slug = AutoSlugField(populate_from='title')
     photo = models.ImageField(upload_to="images/%Y/%m/%d", verbose_name="Фото")
 
     def __str__(self):

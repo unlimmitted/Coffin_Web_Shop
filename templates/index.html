@@ -1,34 +1,21 @@
-<!DOCTYPE html>
+{% extends 'base.html' %}
 {% load static %}
-<html lang="ru">
-<head>
-    <link rel="stylesheet" href="{% static 'stylesheet/style.css' %}">
-    <meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Вход</title>
-    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"
-          rel="stylesheet">
-</head>
-<body>
 {% block content %}
-<div class="container">
-    <div class="row"><div class="regBox">
-        <form action="{% url 'grob' %}" method="POST">
-            <legend>Вход</legend>
-            {% csrf_token %}
-            {{ form.as_p }}
-            <div style="color: red;">
-                {{ message }}
+    {% for i in objects %}
+        <title>{{ title }}</title>
+        <div class='osn'>
+        <div class='card'>
+            {% if i.photo %}
+            <img class='card-img' src='{{ i.photo.url }}' width="500" height="300">
+            {% endif %}
+            <div class='card-title'>{{ i.title }}</div>
+            <div class='card-sub'>
+                {{ i.content }}
             </div>
-            <div class="form-group">
-                <input type="checkbox" name="anotherpc" id="custcheeckbox"> Чужой компьютер
+            <div class='btn-keeper'>
+                <a class='btn' href="{% url 'details' i.slug %}">Подробнее</a>
             </div>
-            <button  id="a1" type="submit" class="btn btn-primary">Войти</button>
-        </form>
+        </div>
     </div>
-    </div>
-</div>
+    {% endfor %}
 {% endblock %}
-</body>
-</html>
-	
