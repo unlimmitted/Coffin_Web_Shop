@@ -2,5 +2,14 @@
 
 {% block content %}
 
+    <title>{{ title }}</title>
+    <h1>{{ title }}</h1>
+    <form method="post">
+        {{ form.non_field_errors }}
+        {% csrf_token %}
+        {{ form.as_p }}
+        {{ f.errors }}
+        <button type="submit">Войти</button>
+    </form>
 
 {% endblock %}

@@ -3,7 +3,7 @@ from django.urls import reverse
 from autoslug import AutoSlugField
 
 
-class coffinList(models.Model):
+class CoffinList(models.Model):
     title = models.CharField(max_length=255, verbose_name="Название гроба")
     content = models.TextField(blank=True, verbose_name="Описание")
     content_details = models.TextField(blank=True, verbose_name="Подробное описание")
@@ -12,6 +12,7 @@ class coffinList(models.Model):
 
     def __str__(self):
         return self.title
+
     def get_absolute_url(self):
         return reverse('coffin', kwargs={'slug': self.slug})
 
