@@ -1,3 +1,4 @@
+import telebot
 from django.contrib.auth import logout, login
 from django.contrib.auth.views import LoginView
 from django.shortcuts import render, get_object_or_404, redirect
@@ -10,7 +11,18 @@ from .utils import *
 
 def show_details(request, slug):
     details = get_object_or_404(CoffinList, slug=slug)
-    return render(request, 'coffin_page.html', context={'data': details})
+    form = SendPurchaseRequest(request.POST)
+    return render(request, 'coffin_page.html', context={'data': details, 'form': form})
+
+
+def send_message(request):
+    form = SendPurchaseRequest(request.POST or None)
+    if form.is_valid():
+        bot = telebot.TeleBot('5713969879:AAG3XwmLVJ2m8f9bazcIVgaK66xGRy3aJn4')
+        CHAT_ID = 500876415
+        bot.send_message(CHAT_ID, f'Email: {form.cleaned_data.get("email")}\nCoffin: {form.cleaned_data.get("coffin")}'
+                                  f'\nComment: {form.cleaned_data.get("comment")}')
+        return redirect('home')
 
 
 def about(request):

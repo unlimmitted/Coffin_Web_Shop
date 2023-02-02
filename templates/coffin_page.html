@@ -1,8 +1,26 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<h1>{{ data.title }}</h1>
+    <title>{{ data.title }}</title>
+    <h1>{{ data.title }}</h1>
     <img src="{{ data.photo.url }}" width="500" height="300">
-
-{{ data.content_details|linebreaks }}
+    {{ data.content_details|linebreaks }}
+    <div>
+        <form action="{% url 'send_message' %}" method="post">
+        {% csrf_token %}
+        {% if request.user.is_authenticated %}
+            <label>
+                <input name="email" value="{{ user.email }}" readonly>
+            </label>
+            <label>
+                <input name="coffin" value="{{ data.title }}" readonly>
+            </label>
+            {{ form.comment }}
+            <button type="submit">Отправить заявку</button>
+        {% else %}
+            <p>Для подачи заявки требуется авторизация</p>
+            <a href="{% url 'register' %}" class="edge-button">Регистрация</a>
+        {% endif %}
+        </form>
+    </div>
 {% endblock %}

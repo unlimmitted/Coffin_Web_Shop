@@ -25,3 +25,9 @@ class RegisterUserForm(UserCreationForm):
 class LoginUserForm(AuthenticationForm):
     username = forms.CharField(label='Логин', widget=forms.TextInput(attrs={}))
     password = forms.CharField(label='Пароль', widget=forms.PasswordInput(attrs={}))
+
+
+class SendPurchaseRequest(forms.Form):
+    email = forms.CharField(label='Email', widget=forms.TextInput(attrs={'value': ''}))
+    coffin = forms.CharField(label='Гроб:', widget=forms.TextInput(attrs={}))
+    comment = forms.CharField(label='Комментарий', widget=forms.Textarea(attrs={}))

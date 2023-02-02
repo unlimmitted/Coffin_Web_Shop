@@ -4,18 +4,18 @@
     {% for i in objects %}
         <title>{{ title }}</title>
         <div class='osn'>
-        <div class='card'>
-            {% if i.photo %}
-            <img class='card-img' src='{{ i.photo.url }}' width="500" height="300">
-            {% endif %}
-            <div class='card-title'>{{ i.title }}</div>
-            <div class='card-sub'>
-                {{ i.content }}
+            <div class='card'>
+                {% if i.photo %}
+                <img class='card-img' src='{{ i.photo.url }}' width="500" height="300">
+                {% endif %}
+                    <div class='card-title'>{{ i.title }}</div>
+                    <div class='card-sub'>
+                        {{ i.content }}
+                    </div>
+                <div class='btn-keeper'>
+                    <a class='btn' href="{% url 'details' i.slug %}">Подробнее</a>
+                </div>
             </div>
-            <div class='btn-keeper'>
-                <a class='btn' href="{% url 'details' i.slug %}">Подробнее</a>
-            </div>
-        </div>
     </div>
     {% endfor %}
 {% endblock %}
