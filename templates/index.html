@@ -1,21 +1,17 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block content %}
+    <h3 class="tittle"> НАШИ ГРОБЫ </h3>
+    <div class="products-container" >
     {% for i in objects %}
-        <title>{{ title }}</title>
-        <div class='osn'>
-            <div class='card'>
-                {% if i.photo %}
-                <img class='card-img' src='{{ i.photo.url }}' width="500" height="300">
+        <div class="products-container" >
+            <div class="product">
+                {% if i.photo %}<img src="{{ i.photo.url }}" class="">
                 {% endif %}
-                    <div class='card-title'>{{ i.title }}</div>
-                    <div class='card-sub'>
-                        {{ i.content }}
-                    </div>
-                <div class='btn-keeper'>
-                    <a class='btn' href="{% url 'details' i.slug %}">Подробнее</a>
-                </div>
+                <h3>{{ i.title }}</h3>
+                <div class="info"><a href="{% url 'details' i.slug %}">Подробнее</a></div>
             </div>
-    </div>
+        </div>
     {% endfor %}
+    </div>
 {% endblock %}

@@ -10,6 +10,7 @@
         {{ form.as_p }}
         {{ f.errors }}
         <button type="submit">Войти</button>
+        <a href="{% url 'register' %}">Регистрация</a>
     </form>
 
 {% endblock %}

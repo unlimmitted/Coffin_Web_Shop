@@ -7,15 +7,17 @@
     <form method="post">
         {% csrf_token %}
         <div>
+            {{ form.non_field_errors }}
             <p>Почта</p>
             {{ form.email }}
             <p>Логин</p>
             {{ form.username }}
-            <p>Парль</p>
+            <p>Пароль</p>
             {{ form.password1 }}
             <p>Повтор пароля</p>
             {{ form.password2 }}
         </div>
+        {{ f.errors }}
         <button type="submit">Регистрация</button>
     </form>
     

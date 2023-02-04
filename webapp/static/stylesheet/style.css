@@ -1,138 +1,200 @@
-body {
-	    position: relative;
-	    font-family: 'Noto Sans', sans-serif;
-	    font-size: 16px;
-	    line-height: 1.4;
-	    color: #000;
-	    min-width: 320px;
-	    overflow-x: hidden;
-	    height: auto;
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+    box-sizing: border-box;
 }
-.navbar {
+
+.hero {
     width: 100%;
-    height: 70px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, .2);
-    border-radius: 20px;
+    min-height: 100vh;
+    background-color: #eceaff;
+    color: #525252;
 }
-.container {
-    min-width: auto;
-}
-.navbar .container {
-    height: inherit;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-   navbar-about{
-       display: flex;
-       flex-flow: row nowrap;
-       padding-right: 100px;
-   }
-/* Кнопки */
-.reglog {
-    margin-left: 30px;
-    padding: 10px 30px;
-    background-color:grey;
-    border-radius: 50px;
-    color: white;
-    text-decoration: none;
-    transition: all .1s ease-out;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
-    transform: scale(1);
-}
-.reglog:hover {
-    transform: scale(1.04) ;
-}
-.about {
-    margin-left: 20px;
-    padding: 10px 30px;
-    background-color:grey;
-    border-radius: 50px;
-    color: white;
-    text-decoration: none;
-    transition: all .1s ease-out;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
-}
-.about:hover {
-    transform: scale(1.04) ;
-}
-
-.edge-button {
-    margin-left: 30px;
-    margin-right: 50px;
-    padding: 10px 30px;
-    background-color:grey;
-    border-radius: 50px;
-    color: white;
-    text-decoration: none;
-    transition: all .1s ease-out;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
-}
-
-.edge-button:hover {
-    transform: scale(1);
-}
-/*--------------------------------- */
-.navbar-logo {
+.name-brand {
     font-weight: 700;
-    font-style: 100px;
+    font-style: unset;
     text-decoration: none;
-    color: black;
+    color: white;
     margin-right: auto;
+    padding-left: 1%;
 }
-.navbar-logo:hover{
+
+.name-brand:hover{
+    color:grey;
+    transition: all .09s ease-in-out;
+
+}
+/* НАЧАЛО ШАПКИ */
+nav {
+    background: #1a1a1a;
+    width: 100%;
+    padding: 10px 10%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+}
+
+.user-pic {
+    width: 40px;
+    border-radius: 50px;
+    cursor: pointer;
+    margin-left: 30px;
+}
+
+/* нав) */
+nav ul {
+    width: 100%;
+    text-align: right;
+}
+
+nav ul li {
+    display: inline-block;
+    list-style: none;
+    margin: 10px 20px
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+}
+
+nav ul li a:hover {
     color:grey;
     transition: all .09s ease-in-out;
 }
-.favicon {
-    padding-left: 50px;
+/* конец */
+
+.sub-menu-wrap {
+    position: absolute;
+    top: 100%;
+    right: 1%;
+    width: 320px;
+    max-height: 0px;
+    overflow: hidden;
+    transition: max-height 0.5s;
+
 }
-.blog-footer {
-    padding: 2mm 0;color: #727272;text-align: center;background-color: #f9f9f9;border-top: 0.05rem solid #e5e5e5;
+.sub-menu-wrap.open-menu {
+    max-height: 400px;
 }
 
-footer {
-    display: block;
-}
-
-.card {
-    background-color: #fff;
-    width: 500px;
-    border-radius: 20px;
-    padding-left: 20px;
+.sub-menu {
+    background: white;
     padding: 20px;
-    box-shadow: 10px 10px 40px #434040;
+    margin: 10px;
 }
-.card-img {
-    border-radius: 11px;
+
+.user-info {
+    display: flex;
+    align-items: center;
 }
-.card-title {
-    margin-top: 20px;
-    font-size: 14px;
+
+.user-info h3 {
     font-weight: 500;
 }
-.card-sub {
-    font-size: 12px;
-    font-weight: 300;
-    margin-top: 20px;
+
+.user-info img {
+    width: 60px;
+    border-radius: 50%;
+    margin-right: 15px;
 }
-.btn-keeper {
-    margin-top: 20px;
+
+.sub-menu hr {
+    border: 0;
+    height: 1px;
+    width: 100%;
+    background: #ccc;
+    margin: 15px 0 10px;
+}
+
+.sub-menu-link {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: #525252;
+    margin: 12px 0;
+}
+
+.sub-menu-link p {
+    width: 100%;
+}
+
+.sub-menu-link img {
+    width: 40px;
+    background: #e5e5e5;
+    border-radius: 50%;
+    padding: 8px;
+    margin-right: 15px;
+}
+
+.sub-menu-link span {
+    font-size: 22px;
+    transition: transform 0.5s;
+}
+
+.sub-menu-link:hover span {
+    transform: translateX(5px);
+}
+.sub-menu-link:hover p {
+    font-weight: 600;
+}
+/*               КОНЕЦ ШАПКИ              */
+
+/*             Товарная Карта            */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 3rem 2rem;
+}
+.container .tittle {
+    font-size: 3.5rem;
+    color: #444;
+    margin-bottom: 3rem;
+    text-transform: uppercase;
     text-align: center;
 }
-.btn {
-    background-color: grey;
-    padding: 7px 12px;
+.container .products-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
+    gap: 2rem;
+}
+.container .products-container .product {
+    text-align: center;
+    padding: 3rem 3rem;
+    background: #fff;
+    box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .1);
+    outline: .1rem solid #ccc;
+    outline-offset: -1.5rem;
+    cursor: pointer;
+}
+.container .products-container .product:hover {
+    outline: .2rem solid #222;
+    outline-offset: 0;
+}
+
+.container .products-container .product img {
+    height: 17rem;
+}
+
+.container .products-container .product:hover img {
+    transform: scale(.9);
+}
+
+.container .products-container .product h3 {
+    padding: .5rem 0;
+    font-size: 2rem;
+    color: #444;
+}
+
+.container .products-container .product .info a {
+    font-size: 2rem;
+    color: #444;
     text-decoration: none;
-    color: #eee;
-    border-radius: 5px;
-    transition: background-color 0.5s linear;
 }
-.btn:hover {
-    /*background-color: ;*/
+
+.container .products-container .product:hover a {
+    color: #cccbcb;
 }
-.osn {
-    padding-top: 25px;
-    padding-left: 70px;
-    float: left;
-}
+/*               КОНЕЦ Карты              */
