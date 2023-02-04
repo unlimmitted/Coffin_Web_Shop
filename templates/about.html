@@ -32,8 +32,8 @@
     {% for r in all_review %}
         <div class='osn'>
             <p>Пользователь: </p>
-            {{ r.username }}
-            <p>Кратка оценка: {{ r.title }}</p>
+            <h1>{{ r.username }}</h1>
+            <p>Краткая оценка: {{ r.title }}</p>
             <p>Отзыв: {{ r.content }}</p>
         </div>
     {% endfor %}

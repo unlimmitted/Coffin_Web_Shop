@@ -1,8 +1,9 @@
 {% extends 'base.html' %}
 
 {% block content %}
+
     <title>{{ data.title }}</title>
-    <h1>{{ data.title }}</h1>
+    <h1 name="coffin">{{ data.title }}</h1>
     <img src="{{ data.photo.url }}" width="500" height="300">
     {{ data.content_details|linebreaks }}
     <div>
@@ -10,12 +11,11 @@
         {% csrf_token %}
         {% if request.user.is_authenticated %}
             <div>
-                <label>
-                <input name="coffin" value="{{ data.title }}" readonly>
-                </label>
+                <h1>Отправить заявку:</h1>
+                <input name="coffin" value="{{ data.title }}" type="hidden">
                 {{ form.comment }}
             </div>
-            <button type="submit">Отправить заявку</button>
+            <button type="submit">Отправить</button>
         {% else %}
             <p>Для подачи заявки требуется авторизация</p>
             <a href="{% url 'register' %}" class="edge-button">Регистрация</a>

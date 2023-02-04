@@ -31,8 +31,8 @@ def send_message(request):
     if form.is_valid():
         bot = telebot.TeleBot(settings.TELEGRAM_API)
         bot.send_message(settings.CHAT_ID,
-                         f'Username: {request.user.username}\nEmail: {request.user.username}'
-                         f'\nCoffin: {form.cleaned_data.get("coffin")}'
+                         f'Username: {request.user.username}\nEmail: {request.user.email}'
+                         f'\nCoffin: {request.POST.get("coffin")}'
                          f'\nComment: {form.cleaned_data.get("comment")}')
         return redirect('home')
 

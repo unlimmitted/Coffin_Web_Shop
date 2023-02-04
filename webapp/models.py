@@ -19,6 +19,7 @@ class CoffinList(models.Model):
     class Meta:
         verbose_name = 'Гробы'
         verbose_name_plural = 'Гробы'
+        ordering = ('-id',)
 
 
 class ReviewList(models.Model):
@@ -32,3 +33,4 @@ class ReviewList(models.Model):
     class Meta:
         verbose_name = 'Отзывы'
         verbose_name_plural = 'Отзывы'
+        ordering = ('-id',)
