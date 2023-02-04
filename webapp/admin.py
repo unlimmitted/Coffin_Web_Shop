@@ -7,3 +7,10 @@ class CoffinListAdmin(admin.ModelAdmin):
 
 
 admin.site.register(CoffinList, CoffinListAdmin)
+
+
+class ReviewListAdmin(admin.ModelAdmin):
+    list_display = ('title', 'content')
+
+
+admin.site.register(ReviewList, ReviewListAdmin)

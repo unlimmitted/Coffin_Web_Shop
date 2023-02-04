@@ -27,5 +27,6 @@ urlpatterns = [
                   path('', views.CoffinHome.as_view(), name='home'),
                   path('about/', views.about, name='about'),
                   path('coffin/<str:slug>', views.show_details, name='details'),
-                  path('succes_send/', views.send_message, name='send_message')
+                  path('succes_send/', views.send_message, name='send_message'),
+                  path('create-review/', views.create_review, name='create-review')
               ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

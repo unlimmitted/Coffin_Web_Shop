@@ -11,6 +11,15 @@ from webapp.models import *
 from .utils import *
 
 
+def create_review(request):
+    form = AddReview(request.POST)
+    if form.is_valid():
+        review_data = form.save(commit=False)
+        review_data.username = request.user.username
+        review_data.save()
+        return redirect('about')
+
+
 def show_details(request, slug):
     details = get_object_or_404(CoffinList, slug=slug)
     form = SendPurchaseRequest(request.POST)
@@ -21,13 +30,17 @@ def send_message(request):
     form = SendPurchaseRequest(request.POST or None)
     if form.is_valid():
         bot = telebot.TeleBot(settings.TELEGRAM_API)
-        bot.send_message(settings.CHAT_ID, f'Email: {form.cleaned_data.get("email")}\nCoffin: {form.cleaned_data.get("coffin")}'
-                                  f'\nComment: {form.cleaned_data.get("comment")}')
+        bot.send_message(settings.CHAT_ID,
+                         f'Username: {request.user.username}\nEmail: {request.user.username}'
+                         f'\nCoffin: {form.cleaned_data.get("coffin")}'
+                         f'\nComment: {form.cleaned_data.get("comment")}')
         return redirect('home')
 
 
 def about(request):
-    return render(request, 'about.html')
+    all_review = ReviewList.objects.all()
+    form = AddReview(request.POST)
+    return render(request, 'about.html', {'create_review': form, 'all_review': all_review})
 
 
 def logout_user(request):

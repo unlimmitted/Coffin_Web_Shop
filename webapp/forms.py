@@ -28,6 +28,11 @@ class LoginUserForm(AuthenticationForm):
 
 
 class SendPurchaseRequest(forms.Form):
-    email = forms.CharField(label='Email', widget=forms.TextInput(attrs={'value': ''}))
     coffin = forms.CharField(label='Гроб:', widget=forms.TextInput(attrs={}))
     comment = forms.CharField(label='Комментарий', widget=forms.Textarea(attrs={}))
+
+
+class AddReview(forms.ModelForm):
+    class Meta:
+        model = ReviewList
+        fields = ['title', 'content']

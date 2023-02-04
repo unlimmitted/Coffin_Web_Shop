@@ -9,13 +9,12 @@
         <form action="{% url 'send_message' %}" method="post">
         {% csrf_token %}
         {% if request.user.is_authenticated %}
-            <label>
-                <input name="email" value="{{ user.email }}" readonly>
-            </label>
-            <label>
+            <div>
+                <label>
                 <input name="coffin" value="{{ data.title }}" readonly>
-            </label>
-            {{ form.comment }}
+                </label>
+                {{ form.comment }}
+            </div>
             <button type="submit">Отправить заявку</button>
         {% else %}
             <p>Для подачи заявки требуется авторизация</p>

@@ -19,3 +19,16 @@ class CoffinList(models.Model):
     class Meta:
         verbose_name = 'Гробы'
         verbose_name_plural = 'Гробы'
+
+
+class ReviewList(models.Model):
+    username = models.CharField(max_length=35, verbose_name='Пользователь')
+    title = models.CharField(max_length=255, verbose_name='Краткая оценка')
+    content = models.TextField(blank=True, verbose_name='Отзыв')
+
+    def __str__(self):
+        return self.title
+
+    class Meta:
+        verbose_name = 'Отзывы'
+        verbose_name_plural = 'Отзывы'
